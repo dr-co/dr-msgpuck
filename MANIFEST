@@ -1,0 +1,8 @@
+Changes
+Makefile.PL
+MANIFEST
+Msgpuck.xs
+ppport.h
+README
+t/DR-Msgpuck.t
+lib/DR/Msgpuck.pm
