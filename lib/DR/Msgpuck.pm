@@ -114,6 +114,19 @@ in it. Example:
     my $blob = msgpack($object);
     ...
 
+=head1 BENCHMARKS
+
+    Packing benchmark
+			 Rate data-messagepack       dr-msgpuck
+    data-messagepack 211416/s               --             -31%
+    dr-msgpuck       306279/s              45%               --
+
+    Unpacking benchmark 
+			 Rate       dr-msgpuck data-messagepack
+    dr-msgpuck       191681/s               --              -7%
+    data-messagepack 206313/s               8%               --
+
+
 =head1 AUTHOR
 
 Dmitry E. Oboukhov, E<lt>unera@debian.orgE<gt>

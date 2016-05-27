@@ -6,7 +6,7 @@ use utf8;
 use open qw(:std :utf8);
 use lib qw(lib ../lib);
 
-use Test::More tests    => 33;
+use Test::More tests    => 34;
 use Encode qw(decode encode);
 
 use lib qw(lib ../lib);
@@ -134,6 +134,34 @@ my @tests = (
         name    => 'bool false',
         value   => DR::Msgpuck::False->new,
     },
+
+    {
+        name    => 'json example',
+        value   => {
+            "glossary" => {
+                "title"    => "example glossary",
+                "GlossDiv" => {
+                    "title"     => "S",
+                    "GlossList" => {
+                        "GlossEntry" => {
+                            "ID"        => "SGML",
+                            "SortAs"    => "SGML",
+                            "GlossTerm" => "Standard Generalized Markup Language",
+                            "Acronym"   => "SGML",
+                            "Abbrev"    => "ISO 8879:1986",
+                            "GlossDef"  => {
+                                "para" =>
+                                    "A meta-markup language, used to ".
+                                    "create markup languages such as DocBook.",
+                                "GlossSeeAlso" => [ "GML", "XML" ]
+                            },
+                            "GlossSee" => "markup"
+                        }
+                    }
+                }
+            }
+        }
+    }
 
 );
 
