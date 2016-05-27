@@ -19,8 +19,8 @@ BEGIN {
     binmode $builder->failure_output, ":utf8";
     binmode $builder->todo_output,    ":utf8";
 
-    use_ok 'DR::Msgpuck';
     use_ok 'Test::Requires', { 'Test::LeakTrace' => 0.13 };
+    use_ok 'DR::Msgpuck';
 }
 
 my $sample = {
