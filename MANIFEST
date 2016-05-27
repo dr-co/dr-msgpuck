@@ -1,8 +1,12 @@
+bench/data-messagepack.pl
 Changes
+lib/DR/Msgpuck.pm
 Makefile.PL
 MANIFEST
+msgpuck.h
 Msgpuck.xs
-ppport.h
 README
+t/010-pack.t
+t/020-unpack.t
+t/030-leak.t
 t/DR-Msgpuck.t
-lib/DR/Msgpuck.pm

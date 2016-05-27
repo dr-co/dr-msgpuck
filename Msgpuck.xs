@@ -2,7 +2,6 @@
 #include "perl.h"
 #include "XSUB.h"
 
-#include "ppport.h"
 
 #define MP_SOURCE 1
 #include "msgpuck.h"
