@@ -27,5 +27,5 @@ tarball: clean
 			--exclude=debian \
 			--exclude=.git \
 			--transform='s,^[^/]\+,libdr-msgpuck-perl-$(VERSION),S' \
-			-czf libdr-msgpuck-perl-$(VERSION).orig.tar.gz \
+			-czf libdr-msgpuck-perl_$(VERSION).orig.tar.gz \
 			$(DIRNAME)
