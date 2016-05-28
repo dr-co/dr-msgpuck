@@ -1,0 +1,5 @@
+libdr-msgpuck-perl (0.01-1) nowtaxi; urgency=low
+
+  * Initial Release.
+
+ -- Dmitry E. Oboukhov <unera@debian.org>  Sat, 28 May 2016 11:45:16 +0300
