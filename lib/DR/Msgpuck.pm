@@ -2,57 +2,15 @@ use 5.014002;
 use strict;
 use warnings;
 
-package DR::Msgpuck::Bool;
-
-
-use overload
-    bool        => sub { ${ $_[0] } },
-    int         => sub { ${ $_[0] } },
-    '!'         => sub { $_[0]->new(!${ $_[0] }) },
-    '""'        => sub { ${ $_[0] } },
-;
-
-sub TO_JSON {
-    my ($self) = @_;
-    $$self ? 'true' : 'false';
-}
-
-sub TO_MSGPACK {
-    my ($self) = @_;
-    pack 'C', $$self ? 0xC3 : 0xC2;
-}
-
-sub new {
-    my ($class, $v) = @_;
-    $v = $v ? 1 : 0;
-    bless \$v => ref($class) || $class;
-}
-
-package DR::Msgpuck::True;
-use base 'DR::Msgpuck::Bool';
-
-sub new {
-    my ($class) = @_;
-    $class->SUPER::new(1);
-}
-
-package DR::Msgpuck::False;
-use base 'DR::Msgpuck::Bool';
-
-sub new {
-    my ($class) = @_;
-    $class->SUPER::new(0);
-}
-
-
 package DR::Msgpuck;
+use DR::Msgpuck::Bool;
 require Exporter;
 use AutoLoader qw(AUTOLOAD);
 
 our @ISA = qw(Exporter);
 our @EXPORT_OK = qw(msgpack msgunpack msgunpack_utf8);
 our @EXPORT = @EXPORT_OK;
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 require XSLoader;
 XSLoader::load('DR::Msgpuck', $VERSION);

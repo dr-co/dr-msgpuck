@@ -6,7 +6,7 @@ use utf8;
 use open qw(:std :utf8);
 use lib qw(lib ../lib);
 
-use Test::More tests    => 91;
+use Test::More tests    => 108;
 use Encode qw(decode encode);
 
 use lib qw(lib ../lib);
@@ -20,6 +20,8 @@ BEGIN {
     binmode $builder->todo_output,    ":utf8";
 
     use_ok 'DR::Msgpuck';
+    use_ok 'DR::Msgpuck::Str';
+    use_ok 'DR::Msgpuck::Num';
 }
 
 for (+note 'null') {
@@ -191,6 +193,27 @@ for (+note 'hashes') {
         ok defined($o) => 'msgpack hash_len=1';
         is length($o) => 3, 'length';
         is $o => pack('CC*', 0x81, 5, 5), 'body';
+    }
+}
+
+
+for (+note 'forced to str') {
+    
+    for my $s ('', 'hello', 'hello' x 10, 'hello' x 1000, 'hello' x 65000) {
+        is DR::Msgpuck::msgpack($s), DR::Msgpuck::Str->new($s)->TO_MSGPACK,
+            'msgpack strlen=' . length $s;
+    }
+
+    for my $s ('', 'привет', 'привет' x 10, 'привет' x 1000, 'привет' x 65000) {
+        is DR::Msgpuck::msgpack($s), DR::Msgpuck::Str->new($s)->TO_MSGPACK,
+            'msgpack utf8 strlen=' . length $s;
+    }
+}
+
+for (+note 'forced to num') {
+    for my $s ('0', '1', '2', '2.56', '-1.28') {
+        is DR::Msgpuck::msgpack($s), DR::Msgpuck::Num->new($s)->TO_MSGPACK,
+            'msgpack ' . $s;
     }
 }
 

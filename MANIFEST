@@ -1,6 +1,16 @@
 bench/data-messagepack.pl
 Changes
+debian/changelog
+debian/compat
+debian/control
+debian/copyright
+debian/rules
+debian/source/format
+debian/watch
+lib/DR/Msgpuck/Bool.pm
+lib/DR/Msgpuck/Num.pm
 lib/DR/Msgpuck.pm
+lib/DR/Msgpuck/Str.pm
 Makefile.PL
 MANIFEST
 msgpuck.h

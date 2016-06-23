@@ -1,3 +1,9 @@
+libdr-msgpuck-perl (0.03-1) nowtaxi; urgency=medium
+
+  * Add Str/Num classes to force packing these formats.
+
+ -- Dmitry E. Oboukhov <unera@debian.org>  Thu, 23 Jun 2016 19:38:56 +0300
+
 libdr-msgpuck-perl (0.02-1) nowtaxi; urgency=medium
 
   * Fix cpan testers tests (long double in tests).
