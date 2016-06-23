@@ -3,7 +3,8 @@ Section: perl
 Priority: optional
 Maintainer: Dmitry E. Oboukhov <unera@debian.org>
 Build-Depends: debhelper (>= 9.20120312~),
- perl
+ perl,
+ libtest-requires-perl
 Standards-Version: 3.9.8
 Homepage: https://metacpan.org/release/DR-Msgpuck
 

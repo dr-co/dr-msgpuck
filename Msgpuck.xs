@@ -170,7 +170,8 @@ _msgpuck(SV *o, SV *out)
                 SvCUR_set(out, len + size);
                 mp_encode_array(p + len, asize);
 
-                for (int i = 0; i < asize; i++) {
+		int i;
+                for (i = 0; i < asize; i++) {
                     SV **item = av_fetch(a, i, 0);
                     _msgpuck(*item, out);
                 }

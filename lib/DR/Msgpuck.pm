@@ -52,7 +52,7 @@ use AutoLoader qw(AUTOLOAD);
 our @ISA = qw(Exporter);
 our @EXPORT_OK = qw(msgpack msgunpack msgunpack_utf8);
 our @EXPORT = @EXPORT_OK;
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 require XSLoader;
 XSLoader::load('DR::Msgpuck', $VERSION);

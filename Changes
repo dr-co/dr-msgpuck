@@ -1,5 +1,7 @@
 Revision history for Perl extension DR::Msgpuck.
 
+0.02  Thu Jun 23 18:28:45 MSK 2016
+	- Fix long double problems in tests (by cpan testers)
 0.01  Fri May 27 01:37:30 2016
 	- original version; created by h2xs 1.23 with options
 		-c DR::Msgpuck

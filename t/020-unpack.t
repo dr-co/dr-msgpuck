@@ -123,7 +123,7 @@ my @tests = (
     },
     {
         name    => 'array in hash in hash',
-        value   => { a => 'b', c  => { d => [ 1, 2, 3.14 ] } },
+        value   => { a => 'b', c  => { d => [ 1, 2, 2.56 ] } },
     },
 
     {

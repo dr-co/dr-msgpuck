@@ -1,3 +1,9 @@
+libdr-msgpuck-perl (0.02-1) nowtaxi; urgency=medium
+
+  * Fix cpan testers tests (long double in tests).
+
+ -- Dmitry E. Oboukhov <unera@debian.org>  Thu, 23 Jun 2016 18:26:38 +0300
+
 libdr-msgpuck-perl (0.01-1) nowtaxi; urgency=low
 
   * Initial Release.
