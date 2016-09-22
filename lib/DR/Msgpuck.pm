@@ -8,9 +8,9 @@ require Exporter;
 use AutoLoader qw(AUTOLOAD);
 
 our @ISA = qw(Exporter);
-our @EXPORT_OK = qw(msgpack msgunpack msgunpack_utf8);
+our @EXPORT_OK = qw(msgpack msgunpack msgunpack_utf8 msgunpack_check);
 our @EXPORT = @EXPORT_OK;
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 require XSLoader;
 XSLoader::load('DR::Msgpuck', $VERSION);
@@ -31,6 +31,13 @@ L<msgpuck|https://github.com/tarantool/msgpuck>.
 
     # all $object's string are utf8
     my $object = msgunpack_utf8 $blob;
+
+    # length of the first msgpack object in your buffer
+    if (my $len = msgunpack_check $buffer) {
+        my $o = msgunpack $buffer;
+        substr $buffer, 0, $len, '';
+        ...
+    }
 
 =head1 DESCRIPTION
 
@@ -71,6 +78,54 @@ in it. Example:
     };
     my $blob = msgpack($object);
     ...
+
+=head1 METHODS
+
+=head2 msgpack
+
+Packs perl object and returns msgpack's blob.
+    
+=head3 example
+
+    use DR::Msgpuck;
+    my $blob = msgpack { a => 'b', c => 'd' };
+
+=head2 msgunpack
+
+Unpacks perl object (croaks if input buffer is invalid).
+
+
+=head3 example
+
+    use DR::Msgpuck;
+    my $object = msgunpack $blob;
+
+
+=head2 msgunpack_utf8
+
+Unpacks perl object. All strings will be encoded to C<utf-8>.
+    
+=head3 example
+
+    use DR::Msgpuck;
+
+    # all $object's string are utf8
+    my $object = msgunpack_utf8 $blob;
+
+=head2 msgunpack_check
+
+Checks input buffer, returns length of the first msgpack object in the buffer.
+    
+=head3 example
+
+    use DR::Msgpuck;
+
+    # length of the first msgpack object in your buffer
+    if (my $len = msgunpack_check $buffer) {
+        my $o = msgunpack $buffer;
+        substr $buffer, 0, $len, '';
+        ...
+    }
 
 =head1 BENCHMARKS
 

@@ -299,3 +299,29 @@ msgunpack_utf8(str)
         _msgunpuck(ptr, ptr + size, &RETVAL, 1);
     OUTPUT:
         RETVAL
+
+size_t msgunpack_check(str)
+        SV *str
+        PROTOTYPE: $
+        CODE:
+            int res;
+            size_t len;
+            if (SvOK(str)) {
+                const char *p = SvPV(str, len);
+                if (len > 0) {
+                    const char *pe = p + len;
+                    const char *begin = p;
+                    if (mp_check(&p, pe) == 0) {
+                        RETVAL = p - begin;
+                    } else {
+                        RETVAL = 0;
+                    }
+                } else {
+                    RETVAL = 0;
+                }
+            } else {
+                RETVAL = 0;
+            }
+        OUTPUT:
+            RETVAL
+

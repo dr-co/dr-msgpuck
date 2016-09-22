@@ -31,7 +31,6 @@ for (+note 'null') {
         is $o => pack('C', 0xC0), 'body';
     }
 }
-
 for (+note 'bool') {
     for (my $o = DR::Msgpuck::msgpack(DR::Msgpuck::True->new)) {
         ok defined($o) => 'msgpack true';

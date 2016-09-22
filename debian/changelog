@@ -1,3 +1,9 @@
+libdr-msgpuck-perl (0.04-1) nowtaxi; urgency=medium
+
+  * Add msgpuck_check method.
+
+ -- Dmitry E. Oboukhov <unera@debian.org>  Thu, 22 Sep 2016 15:55:15 +0300
+
 libdr-msgpuck-perl (0.03-1) nowtaxi; urgency=medium
 
   * Add Str/Num classes to force packing these formats.

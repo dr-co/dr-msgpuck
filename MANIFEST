@@ -17,6 +17,7 @@ msgpuck.h
 Msgpuck.xs
 README
 t/010-pack.t
+t/015-unpack-check.t
 t/020-unpack.t
 t/030-leak.t
 t/DR-Msgpuck.t
